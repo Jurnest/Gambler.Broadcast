@@ -6,3 +6,7 @@ namespace Gambler.Broadcast.Application.Features.Mediator.Queries.GameQueries;
 public class GetGameWithProducerQuery : IRequest<List<GetGameWithProducerQueryResult>>
 {
 }
+
+public class GetSelectedGameWithProducerQuery : IRequest<GetSelectedGameWithProducerQueryResult>
+{
+}

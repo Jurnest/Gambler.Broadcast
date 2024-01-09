@@ -19,6 +19,18 @@ public class GameRepository : IGameRepository
         return values;
     }
 
+    public async Task<Game> GetGameWithProducerById(int id)
+    {
+        var value = await _appDbContext.Games.Include(x => x.GameProducer).Where(y => y.Id == id).FirstOrDefaultAsync();
+        return value;
+    }
+
+    public async Task<Game> GetSelectedGameWithProducer()
+    {
+        var value = await _appDbContext.Games.Include(x => x.GameProducer).Where(y => y.IsActive == true).FirstOrDefaultAsync();
+        return value;
+    }
+
     public async Task SelectActiveGame(int id)
     {
         var activeGames = await _appDbContext.Games.Where(x => x.IsActive).ToListAsync();

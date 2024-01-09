@@ -29,6 +29,20 @@ public class GamesController : ControllerBase
         return Ok(values);
     }
 
+    [HttpGet("GetSelectedGameWithProducer")]
+    public async Task<IActionResult> GetSelectedGameWithProducer()
+    {
+        var values = await _mediator.Send(new GetSelectedGameWithProducerQuery());
+        return Ok(values);
+    }
+
+    [HttpGet("GetGameWithProducerById/{id}")]
+    public async Task<IActionResult> GetGameWithProducerById(int id)
+    {
+        var value = await _mediator.Send(new GetGameWithProducerByIdQuery(id));
+        return Ok(value);
+    }
+
     [HttpGet("{id}")]
     public async Task<IActionResult> GetGameById(int id)
     {

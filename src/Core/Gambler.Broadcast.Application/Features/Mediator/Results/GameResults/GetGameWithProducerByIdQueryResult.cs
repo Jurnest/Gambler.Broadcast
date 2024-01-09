@@ -1,6 +1,6 @@
 ﻿namespace Gambler.Broadcast.Application.Features.Mediator.Results.GameResults;
 
-public class GetGameWithProducerQueryResult
+public class GetGameWithProducerByIdQueryResult
 {
     public int Id { get; set; }
     public string GameName { get; set; }

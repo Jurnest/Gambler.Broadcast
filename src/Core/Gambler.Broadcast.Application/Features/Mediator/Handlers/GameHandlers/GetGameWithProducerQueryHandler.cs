@@ -16,6 +16,7 @@ public class GetGameWithProducerQueryHandler : IRequestHandler<GetGameWithProduc
 
     public async Task<List<GetGameWithProducerQueryResult>> Handle(GetGameWithProducerQuery request, CancellationToken cancellationToken)
     {
+        //ToDo There is difficulty in working fluently, there should be a fix.
         var values = await _repository.GetGamesWithProducer();
         return values.Select(x => new GetGameWithProducerQueryResult
         {
@@ -26,7 +27,8 @@ public class GetGameWithProducerQueryHandler : IRequestHandler<GetGameWithProduc
             MaxMultiplier = x.MaxMultiplier,
             Rtp = x.Rtp,
             SelfMaxEarning = x.SelfMaxEarning,
-            SelfMaxMultiplier = x.SelfMaxMultiplier
+            SelfMaxMultiplier = x.SelfMaxMultiplier,
+            GameProducerName = x.GameProducer.ProducerName
         }).ToList();
     }
 }
