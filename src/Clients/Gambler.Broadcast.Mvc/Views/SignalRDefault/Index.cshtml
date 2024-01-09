@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <script type="text/javascript">
+                        $(document).ready(() => {
+                            var connection = new signalR.HubConnectionBuilder().withUrl("https://localhost:7008/SituationHub").build();
+                            $("#connstatus").text(connection.state);
+
+                            connection.start().then(() => {
+                                $("#constatus").text(connection.state);
+                                connection.invoke("SendSituation");
+                            }).catch((err) => {
+                                console.log(err)
+                            });
+
+                            connection.on("ReciveGetSituationCashIn", (value) => {
+                                $("#cashin").text(value)
+                            })
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <div class="alert alert-success">Bağlantının Durumu: <strong id="constatus"></strong></div>
+        <div class="alert alert-success">Kategori Sayısı: <strong id="cashin"></strong></div>
+    </div>
+</div>
