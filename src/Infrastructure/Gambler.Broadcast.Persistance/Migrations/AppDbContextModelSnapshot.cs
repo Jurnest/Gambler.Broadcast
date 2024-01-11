@@ -55,7 +55,7 @@ namespace Gambler.Broadcast.Persistance.Migrations
 
                     b.HasIndex("GameProducerId");
 
-                    b.ToTable("Games");
+                    b.ToTable("Games", (string)null);
                 });
 
             modelBuilder.Entity("Gambler.Broadcast.Domain.Entities.GameProducer", b =>
@@ -71,7 +71,7 @@ namespace Gambler.Broadcast.Persistance.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("GameProducers");
+                    b.ToTable("GameProducers", (string)null);
                 });
 
             modelBuilder.Entity("Gambler.Broadcast.Domain.Entities.Situation", b =>
@@ -96,7 +96,7 @@ namespace Gambler.Broadcast.Persistance.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Situations");
+                    b.ToTable("Situations", (string)null);
                 });
 
             modelBuilder.Entity("Gambler.Broadcast.Domain.Entities.WhatsHappenedToday", b =>
@@ -115,7 +115,7 @@ namespace Gambler.Broadcast.Persistance.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("WhatsHappenedTodays");
+                    b.ToTable("WhatsHappenedTodays", (string)null);
                 });
 
             modelBuilder.Entity("Gambler.Broadcast.Domain.Entities.Game", b =>

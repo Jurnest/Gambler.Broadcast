@@ -47,8 +47,6 @@ public class WhatsHappenedTodayRepository : IWhatsHappenedToday
             return await FindValue();
         }
             
-
-
         return value;
     }
 

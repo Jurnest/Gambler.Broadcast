@@ -9,6 +9,7 @@ using Gambler.Broadcast.Persistance.Repository.GameRepository;
 using Gambler.Broadcast.Persistance.Repository.SituationRepository;
 using Gambler.Broadcast.Persistance.Repository.WhatsHappenedTodayRepository;
 using Gambler.Broadcast.WebApi.Hubs;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,6 +37,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+app.ApplyMigration();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
