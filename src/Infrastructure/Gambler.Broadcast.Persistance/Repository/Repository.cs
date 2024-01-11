@@ -25,12 +25,12 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
 
     public async Task CreateAsync(TEntity entity)
     {
-        _appDbContext.Set<TEntity>().Add(entity);
+        await _appDbContext.Set<TEntity>().AddAsync(entity);
         await _appDbContext.SaveChangesAsync();
     }
     public async Task UpdateAsync(TEntity entity)
     {
-        _appDbContext.Set<TEntity>().Update(entity);
+        await _appDbContext.Set<TEntity>().AddAsync(entity);
         await _appDbContext.SaveChangesAsync();
     }
 

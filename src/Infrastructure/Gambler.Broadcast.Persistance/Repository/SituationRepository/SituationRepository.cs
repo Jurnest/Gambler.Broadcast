@@ -4,7 +4,7 @@ using Gambler.Broadcast.Persistance.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Gambler.Broadcast.Persistance.Repository.NewFolder;
+namespace Gambler.Broadcast.Persistance.Repository.SituationRepository;
 
 public class SituationRepository : ISituationRepository
 {

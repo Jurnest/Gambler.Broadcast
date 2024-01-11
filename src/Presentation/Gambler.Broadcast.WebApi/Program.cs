@@ -1,11 +1,13 @@
 using Gambler.Broadcast.Application.Interfaces;
 using Gambler.Broadcast.Application.Interfaces.GameInterfaces;
 using Gambler.Broadcast.Application.Interfaces.SituationInterfaces;
+using Gambler.Broadcast.Application.Interfaces.WhatsHappenedToday;
 using Gambler.Broadcast.Application.Services;
 using Gambler.Broadcast.Persistance.Context;
 using Gambler.Broadcast.Persistance.Repository;
 using Gambler.Broadcast.Persistance.Repository.GameRepository;
-using Gambler.Broadcast.Persistance.Repository.NewFolder;
+using Gambler.Broadcast.Persistance.Repository.SituationRepository;
+using Gambler.Broadcast.Persistance.Repository.WhatsHappenedTodayRepository;
 using Gambler.Broadcast.WebApi.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +16,7 @@ builder.Services.AddScoped<AppDbContext>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped(typeof(IGameRepository), typeof(GameRepository));
 builder.Services.AddScoped(typeof(ISituationRepository), typeof(SituationRepository));
+builder.Services.AddScoped(typeof(IWhatsHappenedToday), typeof(WhatsHappenedTodayRepository));
 
 builder.Services.AddCors(options =>
 {

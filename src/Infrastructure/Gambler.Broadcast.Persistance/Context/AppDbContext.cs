@@ -12,4 +12,5 @@ public class AppDbContext : DbContext
     public DbSet<Game> Games { get; set; }
     public DbSet<GameProducer> GameProducers { get; set; }
     public DbSet<Situation> Situations { get; set; }
+    public DbSet<WhatsHappenedToday> WhatsHappenedTodays { get; set; }
 }
