@@ -36,7 +36,17 @@ public class WhatsHappenedTodayRepository : IWhatsHappenedToday
     {
         var value = await FindValue();
         if (value == null)
-            return null;
+        {
+            WhatsHappenedToday whatsHappenedToday = new WhatsHappenedToday()
+            {
+                Description = null,
+                CreatedAt = DateTime.Now.Date
+            };
+            await CreateWhatsHappenedToday(whatsHappenedToday);
+
+            return await FindValue();
+        }
+            
 
 
         return value;
